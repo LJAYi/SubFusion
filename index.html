@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>SubFusion · 混合订阅转换器</title>
+<script src="app.js"></script>
+<style>
+body { font-family: system-ui, sans-serif; margin: 2em; }
+input[type=text] { width: 90%; padding: .4em; margin-bottom: .6em; }
+textarea { width: 100%; height: 300px; }
+button { padding: .5em 1em; margin-top: .5em; }
+</style>
+</head>
+<body>
+<h2>🌐 SubFusion — 混合订阅转换器</h2>
+<p>支持本地（安全）与 Cloudflare Worker（可导入 Clash）双模式。</p>
+
+<label>订阅链接：</label><br>
+<input id="url" type="text" placeholder="https://example.com/subscribe?token=xxxx"><br>
+
+<label>Cloudflare Worker 地址（可选）：</label><br>
+<input id="worker" type="text" placeholder="https://yoursubfusion.workers.dev/sub"><br>
+
+<p>
+  模式：
+  <label><input type="radio" name="mode" value="local" checked> 本地生成（最高隐私）</label>
+  <label><input type="radio" name="mode" value="cloudflare"> Cloudflare Worker 生成</label>
+</p>
+
+<button onclick="start()">开始转换</button>
+<p><small>💡 默认纯前端执行，不上传任何 token。选择 Cloudflare 模式将请求你的 Worker 服务。</small></p>
+
+<textarea id="output" placeholder="结果将在此显示…"></textarea>
+
+<script>
+async function start() {
+  const subUrl = document.getElementById("url").value.trim();
+  const workerUrl = document.getElementById("worker").value.trim();
+  const mode = document.querySelector('input[name="mode"]:checked').value;
+  if (!subUrl) return alert("请输入订阅链接");
+  await convert(mode, subUrl, workerUrl);
+}
+</script>
+</body>
+</html>
