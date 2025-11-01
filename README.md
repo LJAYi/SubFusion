@@ -24,8 +24,8 @@
 ## 🧩 架构原理 / Architecture
 
 用户浏览器（GitHub Pages）
-├── Local Mode：前端 JS 直接 fetch 订阅 → 生成 YAML
-└── Cloudflare Mode：调用你的 Worker → Worker 拉取订阅 → 返回 Clash YAML
+├─ Local Mode：前端 JS 直接 fetch 订阅 → 生成 YAML
+└─ Cloudflare Mode：调用你的 Worker → Worker 拉取订阅 → 返回 Clash YAML
 
 - GitHub Pages：静态网页前端，负责用户交互与安全生成。  
 - Cloudflare Worker：可选后端，仅做一次性代理与格式拼装，不保存 token。  
@@ -35,9 +35,9 @@
 ## ⚙️ 文件结构 / Structure
 
 SubFusion/
-├── index.html       # 主网页（UI）
-├── app.js           # 前端逻辑
-└── worker.js        # 可选后端（Cloudflare Worker）
+├─ index.html   # 主网页（UI）
+├─ app.js       # 前端逻辑
+└─ worker.js    # 可选后端（Cloudflare Worker）
 
 ---
 
