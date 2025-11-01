@@ -99,7 +99,6 @@ https://yourname-subfusion.workers.dev/sub
 
 ## 📦 示例项目链接 / Demo
 
-（部署后可改成你的链接）  
 🔗 [https://LJAYi.github.io/SubFusion/](https://LJAYi.github.io/SubFusion/)
 
 ---
